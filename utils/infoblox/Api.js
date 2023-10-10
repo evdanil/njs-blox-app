@@ -65,7 +65,7 @@ export async function getDataAPI(
       errorObj = { message: error, status: error.name }
     }
   }
-  return errorObj
+  return new Promise.resolve(errorObj)
 }
 
 export async function getAllSubnetData(subnet) {
