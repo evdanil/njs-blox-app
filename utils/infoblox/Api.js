@@ -54,17 +54,18 @@ export async function getDataAPI(
       timeout: 5000,
     }
   }
+  let errorObj = {}
   try {
     const res = await fetchWithTimeout(requestUri, fetchOptions)
     return res.json()
   } catch (error) {
     if (error.name === 'AbortError') {
-      console.log({ message: 'request timed out', status: 'timeout error' })
+      errorObj = { message: 'request timed out', status: 'timeout error' }
     } else {
-      console.log({ message: error, status: error.name })
+      errorObj = { message: error, status: error.name }
     }
   }
-  return { message: 'Unknown Error', status: 'unknown error' }
+  return errorObj
 }
 
 export async function getAllSubnetData(subnet) {
