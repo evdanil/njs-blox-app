@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import Layout from '@/components/Layout'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import { API_URL } from '@/config/index'
+import { DEBUG } from '@/config/index'
 import styles from '@/styles/Form.module.css'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -31,9 +31,10 @@ function SubnetPage() {
       return
     }
     const fetchSubnetsData = async () => {
+      DEBUG && console.log('DEBUG: FetchSubnetsData called!')
       ;[...subnetsData.keys()].map(async (subnet) => {
         const result = await getAllSubnetData(subnet)
-
+        DEBUG && console.log('DEBUG: Processing ' + subnet)
         updateSubnetsData(subnet, {
           ...subnetsData.get(subnet),
           ...result,
@@ -51,20 +52,16 @@ function SubnetPage() {
 
     const subnetsArray = subnets.split(/[,\s]+|$/)
 
-    const fetchData = async () => {
-      // await import("");
+    const fetchData = () => {
       subnetsArray.map(async (subnet) => {
-        const result = await getDataAPI(
-          subnet,
-          'network',
-          '_return_as_object=1',
-          ''
-        )
+        const result = await getDataAPI(subnet)
 
         if (result.message !== undefined) {
           toast.error(`${result.message}`)
         } else {
+          // console.log(result)
           if (result[0]?.network !== undefined) {
+            DEBUG && console.log(`DEBUG: Updating ${subnet}`)
             updateSubnetsData(subnet, {
               ...subnetsData.get(subnet),
               network: result[0].network,
@@ -73,10 +70,12 @@ function SubnetPage() {
           }
         }
       })
-      setIsValidated(true)
     }
 
     fetchData()
+    setTimeout(() => {
+      setIsValidated(true)
+    }, 1000)
   }, [isSubmitted])
 
   const handleSubmit = async (e) => {
@@ -100,6 +99,10 @@ function SubnetPage() {
     if (list.length === 0) {
       return ''
     }
+
+    // Remove duplicates
+    let dedupList = (arr) => [...new Set(arr)]
+
     // Regexp validating IP/CIDR
     const regexp =
       /^(((([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\/([1-9]|1[0-9]|2[0-8]|3[0-2])){0,1}){0,1}((\s*,\s*)(?=[^,])){0,1})+$/
@@ -108,8 +111,10 @@ function SubnetPage() {
     const result = list.map((s) => {
       return s.match(regexp) !== null ? s : null
     })
-    // Set textarea to filtered results
-    const subnets_list = result.filter((s) => s !== null).join('\n')
+
+    const subnets_list = dedupList(result)
+      .filter((s) => s !== null)
+      .join('\n')
 
     if (subnets_list.length !== 0) {
       // console.log('subnets_list:' + subnets_list)
