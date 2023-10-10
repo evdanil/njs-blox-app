@@ -1,4 +1,20 @@
 import { API_URL } from '@/config/index'
+import { getStoredAuth } from '../auth/Auth'
+
+async function fetchWithTimeout(resource, options = {}) {
+  const { timeout = 10000 } = options
+
+  const controller = new AbortController()
+  const id = setTimeout(() => controller.abort(), timeout)
+
+  const response = await fetch(resource, {
+    ...options,
+    signal: controller.signal,
+  })
+  clearTimeout(id)
+
+  return response
+}
 
 // Multiple types of requests:
 // - to get general subnet data - use default options with no fields
@@ -20,13 +36,29 @@ export async function getDataAPI(
   options = '_return_as_object=1',
   fields = ''
 ) {
-  const request_uri = `${API_URL}/${
+  const { apiUrl, username, password } = getStoredAuth()
+
+  const requestUri = `${apiUrl !== '' ? apiUrl : API_URL}/${
     req_type !== '' ? req_type : 'network'
   }?network=${subnet.trim()}${options != '' ? '&' + options.trim() : ''}
   ${fields != '' ? '&' + fields.trim() : ''}`
+  let fetchOptions = {}
+  if (username !== '' && password !== '') {
+    fetchOptions = {
+      method: 'GET',
+      headers: {
+        Authorization: 'Basic ' + btoa(`${username}:${password}`),
+      },
+      timeout: 5000,
+    }
+  }
   // console.log(request_uri)
-  const res = await fetch(request_uri)
-  return res.json()
+  try {
+    const res = await fetchWithTimeout(requestUri, fetchOptions)
+    return res.json()
+  } catch (error) {
+    return { message: error }
+  }
 }
 
 export default async function getAllSubnetData(subnet) {

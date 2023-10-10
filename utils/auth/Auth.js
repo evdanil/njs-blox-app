@@ -1,4 +1,4 @@
-// aiuthData object assumes properties: API_URL string, username string, password string
+// authData object assumes properties: apiUrl string, username string, password string
 export function getStoredAuth() {
   const authData = localStorage.getItem('authData')
     ? JSON.parse(localStorage.getItem('authData'))

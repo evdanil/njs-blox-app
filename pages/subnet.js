@@ -32,7 +32,7 @@ function SubnetPage() {
     }
 
     const fetchData = async () => {
-      Array.from(subnetsData.keys()).map(async (subnet) => {
+      ;[...subnetsData.keys()].map(async (subnet) => {
         const result = await getAllSubnetData(subnet)
 
         updateSubnetsData(subnet, {
@@ -51,15 +51,17 @@ function SubnetPage() {
       return
     }
 
-    const subnetsArray = subnets.trim().split(/[,\s]+|$/)
+    const subnetsArray = subnets.split(/[,\s]+|$/)
 
     // const subnetsMap = new Map()
     const fetchData = async () => {
       subnetsArray.map(async (subnet) => {
-        const result = await getDataAPI(subnet)
+        let result = null
+
+        result = await getDataAPI(subnet)
 
         if (result.message !== undefined) {
-          toast.error(`Subnet ${subnet}: ${result.message}`)
+          toast.error(`${result.message}`)
         } else {
           updateSubnetsData(subnet, {
             ...subnetsData.get(subnet),
@@ -76,7 +78,12 @@ function SubnetPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const validatedSubnets = validateSubnets(subnets.trim().split(/[,\s]+|$/))
+    const validatedSubnets = validateSubnets(
+      subnets
+        .trim()
+        .split(/[,\s]+|$/)
+        .filter((el) => el !== '')
+    )
 
     if (validatedSubnets.length === 0) {
       toast.error('Please fill in IP or Subnet list')
