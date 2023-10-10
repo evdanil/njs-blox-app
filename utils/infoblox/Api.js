@@ -59,14 +59,15 @@ export async function getDataAPI(
     return res.json()
   } catch (error) {
     if (error.name === 'AbortError') {
-      return { message: 'request timed out', status: 'timeout error' }
+      console.log({ message: 'request timed out', status: 'timeout error' })
     } else {
-      return { message: error, status: error.name }
+      console.log({ message: error, status: error.name })
     }
   }
+  return { message: 'Unknown Error', status: 'unknown error' }
 }
 
-export default async function getAllSubnetData(subnet) {
+export async function getAllSubnetData(subnet) {
   // Initiate both requests in parallel
   // Receive DNS A Records or DHCP issues Addresses
   const dnsRecordsData = getDataAPI(
