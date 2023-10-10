@@ -60,7 +60,7 @@ export async function getDataAPI(
     return res.json()
   } catch (error) {
     if (error.name === 'AbortError') {
-      errorObj = { message: 'request timed out', status: 'timeout error' }
+      errorObj = { message: 'API timed out', status: 'timeout error' }
     } else {
       errorObj = { message: error, status: error.name }
     }
