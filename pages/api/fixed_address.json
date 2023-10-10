@@ -1,0 +1,193 @@
+{
+  "fixedaddress": [
+      {
+          "req": "GET https://145.6.23.137/wapi/v2.11/fixedaddress?network=10.227.17.0/24&_return_fields=ipv4addr,mac,name",
+          "data": [
+              {
+                  "_ref": "fixedaddress/ZG5zLmZpeGVkX2FkZHJlc3MkMTAuMjI3LjE3LjYuMC4u:10.227.17.6/default",
+                  "ipv4addr": "10.227.17.6",
+                  "mac": "90:4c:81:ce:26:1e",
+                  "name": "aucicwp001.net-equip.shell.net"
+              },
+              {
+                  "_ref": "fixedaddress/ZG5zLmZpeGVkX2FkZHJlc3MkMTAuMjI3LjE3LjcuMC4u:10.227.17.7/default",
+                  "ipv4addr": "10.227.17.7",
+                  "mac": "90:4c:81:ce:27:c2",
+                  "name": "aucicwp002.net-equip.shell.net"
+              },
+              {
+                  "_ref": "fixedaddress/ZG5zLmZpeGVkX2FkZHJlc3MkMTAuMjI3LjE3LjguMC4u:10.227.17.8/default",
+                  "ipv4addr": "10.227.17.8",
+                  "mac": "90:4c:81:ce:27:ea",
+                  "name": "aucicwp003.net-equip.shell.net"
+              },
+              {
+                  "_ref": "fixedaddress/ZG5zLmZpeGVkX2FkZHJlc3MkMTAuMjI3LjE3LjkuMC4u:10.227.17.9/default",
+                  "ipv4addr": "10.227.17.9",
+                  "mac": "90:4c:81:ce:29:3e",
+                  "name": "aucicwp004.net-equip.shell.net"
+              },
+              {
+                  "_ref": "fixedaddress/ZG5zLmZpeGVkX2FkZHJlc3MkMTAuMjI3LjE3LjEwLjAuLg:10.227.17.10/default",
+                  "ipv4addr": "10.227.17.10",
+                  "mac": "90:4c:81:ce:25:56",
+                  "name": "aucicwp005.net-equip.shell.net"
+              },
+              {
+                  "_ref": "fixedaddress/ZG5zLmZpeGVkX2FkZHJlc3MkMTAuMjI3LjE3LjExLjAuLg:10.227.17.11/default",
+                  "ipv4addr": "10.227.17.11",
+                  "mac": "90:4c:81:ce:2a:30",
+                  "name": "aucicwp006.net-equip.shell.net"
+              },
+              {
+                  "_ref": "fixedaddress/ZG5zLmZpeGVkX2FkZHJlc3MkMTAuMjI3LjE3LjEyLjAuLg:10.227.17.12/default",
+                  "ipv4addr": "10.227.17.12",
+                  "mac": "90:4c:81:ce:23:88",
+                  "name": "aucicwp007.net-equip.shell.net"
+              },
+              {
+                  "_ref": "fixedaddress/ZG5zLmZpeGVkX2FkZHJlc3MkMTAuMjI3LjE3LjEzLjAuLg:10.227.17.13/default",
+                  "ipv4addr": "10.227.17.13",
+                  "mac": "90:4c:81:ce:27:ca",
+                  "name": "aucicwp008.net-equip.shell.net"
+              },
+              {
+                  "_ref": "fixedaddress/ZG5zLmZpeGVkX2FkZHJlc3MkMTAuMjI3LjE3LjE0LjAuLg:10.227.17.14/default",
+                  "ipv4addr": "10.227.17.14",
+                  "mac": "90:4c:81:ce:27:9a",
+                  "name": "aucicwp009.net-equip.shell.net"
+              },
+              {
+                  "_ref": "fixedaddress/ZG5zLmZpeGVkX2FkZHJlc3MkMTAuMjI3LjE3LjE1LjAuLg:10.227.17.15/default",
+                  "ipv4addr": "10.227.17.15",
+                  "mac": "90:4c:81:ce:28:42",
+                  "name": "aucicwp010.net-equip.shell.net"
+              },
+              {
+                  "_ref": "fixedaddress/ZG5zLmZpeGVkX2FkZHJlc3MkMTAuMjI3LjE3LjE2LjAuLg:10.227.17.16/default",
+                  "ipv4addr": "10.227.17.16",
+                  "mac": "90:4c:81:ce:24:48",
+                  "name": "aucicwp011.net-equip.shell.net"
+              },
+              {
+                  "_ref": "fixedaddress/ZG5zLmZpeGVkX2FkZHJlc3MkMTAuMjI3LjE3LjE3LjAuLg:10.227.17.17/default",
+                  "ipv4addr": "10.227.17.17",
+                  "mac": "90:4c:81:ce:24:0e",
+                  "name": "aucicwp012.net-equip.shell.net"
+              },
+              {
+                  "_ref": "fixedaddress/ZG5zLmZpeGVkX2FkZHJlc3MkMTAuMjI3LjE3LjE4LjAuLg:10.227.17.18/default",
+                  "ipv4addr": "10.227.17.18",
+                  "mac": "90:4c:81:ce:26:8a",
+                  "name": "aucicwp013.net-equip.shell.net"
+              },
+              {
+                  "_ref": "fixedaddress/ZG5zLmZpeGVkX2FkZHJlc3MkMTAuMjI3LjE3LjE5LjAuLg:10.227.17.19/default",
+                  "ipv4addr": "10.227.17.19",
+                  "mac": "90:4c:81:ce:25:20",
+                  "name": "aucicwp014.net-equip.shell.net"
+              },
+              {
+                  "_ref": "fixedaddress/ZG5zLmZpeGVkX2FkZHJlc3MkMTAuMjI3LjE3LjIwLjAuLg:10.227.17.20/default",
+                  "ipv4addr": "10.227.17.20",
+                  "mac": "90:4c:81:ce:24:d0",
+                  "name": "aucicwp015.net-equip.shell.net"
+              },
+              {
+                  "_ref": "fixedaddress/ZG5zLmZpeGVkX2FkZHJlc3MkMTAuMjI3LjE3LjIxLjAuLg:10.227.17.21/default",
+                  "ipv4addr": "10.227.17.21",
+                  "mac": "90:4c:81:ce:24:f4",
+                  "name": "aucicwp016.net-equip.shell.net"
+              },
+              {
+                  "_ref": "fixedaddress/ZG5zLmZpeGVkX2FkZHJlc3MkMTAuMjI3LjE3LjIyLjAuLg:10.227.17.22/default",
+                  "ipv4addr": "10.227.17.22",
+                  "mac": "90:4c:81:ce:23:9a",
+                  "name": "aucicwp017.net-equip.shell.net"
+              },
+              {
+                  "_ref": "fixedaddress/ZG5zLmZpeGVkX2FkZHJlc3MkMTAuMjI3LjE3LjIzLjAuLg:10.227.17.23/default",
+                  "ipv4addr": "10.227.17.23",
+                  "mac": "90:4c:81:ce:23:78",
+                  "name": "aucicwp018.net-equip.shell.net"
+              },
+              {
+                  "_ref": "fixedaddress/ZG5zLmZpeGVkX2FkZHJlc3MkMTAuMjI3LjE3LjI0LjAuLg:10.227.17.24/default",
+                  "ipv4addr": "10.227.17.24",
+                  "mac": "90:4c:81:ce:26:70",
+                  "name": "aucicwp019.net-equip.shell.net"
+              },
+              {
+                  "_ref": "fixedaddress/ZG5zLmZpeGVkX2FkZHJlc3MkMTAuMjI3LjE3LjI1LjAuLg:10.227.17.25/default",
+                  "ipv4addr": "10.227.17.25",
+                  "mac": "90:4c:81:ce:28:b8",
+                  "name": "aucicwp020.net-equip.shell.net"
+              },
+              {
+                  "_ref": "fixedaddress/ZG5zLmZpeGVkX2FkZHJlc3MkMTAuMjI3LjE3LjI2LjAuLg:10.227.17.26/default",
+                  "ipv4addr": "10.227.17.26",
+                  "mac": "90:4c:81:ce:26:66",
+                  "name": "aucicwp021.net-equip.shell.net"
+              },
+              {
+                  "_ref": "fixedaddress/ZG5zLmZpeGVkX2FkZHJlc3MkMTAuMjI3LjE3LjI3LjAuLg:10.227.17.27/default",
+                  "ipv4addr": "10.227.17.27",
+                  "mac": "90:4c:81:ce:29:02",
+                  "name": "aucicwp022.net-equip.shell.net"
+              },
+              {
+                  "_ref": "fixedaddress/ZG5zLmZpeGVkX2FkZHJlc3MkMTAuMjI3LjE3LjI4LjAuLg:10.227.17.28/default",
+                  "ipv4addr": "10.227.17.28",
+                  "mac": "90:4c:81:ce:25:c0",
+                  "name": "aucicwp023.net-equip.shell.net"
+              },
+              {
+                  "_ref": "fixedaddress/ZG5zLmZpeGVkX2FkZHJlc3MkMTAuMjI3LjE3LjI5LjAuLg:10.227.17.29/default",
+                  "ipv4addr": "10.227.17.29",
+                  "mac": "90:4c:81:ce:25:86",
+                  "name": "aucicwp024.net-equip.shell.net"
+              },
+              {
+                  "_ref": "fixedaddress/ZG5zLmZpeGVkX2FkZHJlc3MkMTAuMjI3LjE3LjMwLjAuLg:10.227.17.30/default",
+                  "ipv4addr": "10.227.17.30",
+                  "mac": "90:4c:81:ce:26:ae",
+                  "name": "aucicwp025.net-equip.shell.net"
+              },
+              {
+                  "_ref": "fixedaddress/ZG5zLmZpeGVkX2FkZHJlc3MkMTAuMjI3LjE3LjMxLjAuLg:10.227.17.31/default",
+                  "ipv4addr": "10.227.17.31",
+                  "mac": "90:4c:81:ce:25:7a",
+                  "name": "aucicwp026.net-equip.shell.net"
+              },
+              {
+                  "_ref": "fixedaddress/ZG5zLmZpeGVkX2FkZHJlc3MkMTAuMjI3LjE3LjE1NS4wLi4:10.227.17.155/default",
+                  "ipv4addr": "10.227.17.155",
+                  "mac": "58:bf:ea:01:77:c0",
+                  "name": "aukmbrbjbr007.net-equip.shell.net"
+              },
+              {
+                  "_ref": "fixedaddress/ZG5zLmZpeGVkX2FkZHJlc3MkMTAuMjI3LjE3LjMyLjAuLg:10.227.17.32/default",
+                  "ipv4addr": "10.227.17.32",
+                  "mac": "1c:28:af:cc:70:6c"
+              },
+              {
+                  "_ref": "fixedaddress/ZG5zLmZpeGVkX2FkZHJlc3MkMTAuMjI3LjE3LjMzLjAuLg:10.227.17.33/default",
+                  "ipv4addr": "10.227.17.33",
+                  "mac": "1c:28:af:cc:6a:fe"
+              }
+          ]
+      },
+      {
+        "req": "GET https://145.6.23.137/wapi/v2.11/fixedaddress?network=10.228.10.0/24&_return_fields=ipv4addr,mac,name",
+        "data": [
+            {
+                "_ref": "fixedaddress/ZG5zLmZpeGVkX2FkZHJlc3MkMTAuMjI3LjE3LjYuMC4u:10.228.10.0/default",
+                "ipv4addr": "10.228.10.1",
+                "mac": "90:4c:81:34:10:1e",
+                "name": "aujdnvi660-if.net-equip.shell.net"
+            }
+       ]
+    }
+
+  ]
+}

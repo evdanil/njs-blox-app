@@ -1,0 +1,22 @@
+{"network":
+[
+  {
+      "req": "GET https://145.6.23.137/wapi/v2.11/network?network=10.227.17.0/24&_return_as_object=1",
+      "data": {
+          "_ref": "network/ZG5zLm5ldHdvcmskMTAuMjI3LjE3LjAvMjQvMA:10.227.17.0/24/default",
+          "comment": "AU ; CIC ; VLAN852 Access Point Management",
+          "network": "10.227.17.0/24",
+          "network_view": "default"
+      }
+  },
+  {
+    "req": "GET https://145.6.23.137/wapi/v2.11/network?network=10.227.17.0/24&_return_as_object=1",
+    "data": {
+        "_ref": "network/ZG5zLm5ldHdvcmskMTAuMjI3LjE3LjAvMjQvMA:10.228.10.0/24/default",
+        "comment": "AU ; JDN ; VLAN852 Access Point Management",
+        "network": "10.228.10.0/24",
+        "network_view": "default"
+    }
+}
+]
+}

@@ -1,0 +1,72 @@
+{
+  "dhcp_opts": [
+      {
+          "req": "GET https://145.6.23.137/wapi/v2.11/network?network=10.227.17.0/24&_return_fields=options,members",
+          "data": {
+              "_ref": "network/ZG5zLm5ldHdvcmskMTAuMjI3LjE3LjAvMjQvMA:10.227.17.0/24/default",
+              "members": [
+                  {
+                      "_struct": "dhcpmember",
+                      "ipv4addr": "156.31.105.35",
+                      "ipv6addr": null,
+                      "name": "sgsgpsg1ib205.shell.com"
+                  },
+                  {
+                      "_struct": "dhcpmember",
+                      "ipv4addr": "156.31.24.15",
+                      "ipv6addr": null,
+                      "name": "sgsgpsg2ib305.shell.com"
+                  }
+              ],
+              "options": [
+                  {
+                      "name": "netbios-node-type",
+                      "num": 46,
+                      "value": "8",
+                      "vendor_class": "DHCP"
+                  },
+                  {
+                      "name": "vendor-class-identifier",
+                      "num": 60,
+                      "value": "ArubaAP",
+                      "vendor_class": "DHCP"
+                  },
+                  {
+                      "name": "vendor-encapsulated-options",
+                      "num": 43,
+                      "value": "10.18.100.170",
+                      "vendor_class": "DHCP"
+                  },
+                  {
+                      "name": "dhcp-lease-time",
+                      "num": 51,
+                      "use_option": true,
+                      "value": "172800",
+                      "vendor_class": "DHCP"
+                  },
+                  {
+                      "name": "domain-name-servers",
+                      "num": 6,
+                      "use_option": true,
+                      "value": "134.162.23.1,134.162.23.2",
+                      "vendor_class": "DHCP"
+                  },
+                  {
+                      "name": "domain-name",
+                      "num": 15,
+                      "use_option": true,
+                      "value": "net-equip.shell.net",
+                      "vendor_class": "DHCP"
+                  },
+                  {
+                      "name": "routers",
+                      "num": 3,
+                      "use_option": true,
+                      "value": "10.227.17.1",
+                      "vendor_class": "DHCP"
+                  }
+              ]
+          }
+      }
+  ]
+}
