@@ -6,8 +6,8 @@ import { API_URL } from '@/config/index'
 import styles from '@/styles/Form.module.css'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import getDataAPI from '@/utils/infoblox/Api'
-import getAllSubnetData from '@/utils/infoblox/Api'
+import { getDataAPI } from '@/utils/infoblox/Api'
+import { getAllSubnetData } from '@/utils/infoblox/Api'
 import SubnetResult from '@/components/SubnetResult'
 
 function SubnetPage() {
@@ -30,8 +30,7 @@ function SubnetPage() {
     if (!isValidated) {
       return
     }
-
-    const fetchData = async () => {
+    const fetchSubnetsData = async () => {
       ;[...subnetsData.keys()].map(async (subnet) => {
         const result = await getAllSubnetData(subnet)
 
@@ -41,8 +40,7 @@ function SubnetPage() {
         })
       })
     }
-
-    fetchData()
+    fetchSubnetsData()
   }, [isValidated])
 
   useEffect(() => {
@@ -53,21 +51,26 @@ function SubnetPage() {
 
     const subnetsArray = subnets.split(/[,\s]+|$/)
 
-    // const subnetsMap = new Map()
     const fetchData = async () => {
+      // await import("");
       subnetsArray.map(async (subnet) => {
-        let result = null
-
-        result = await getDataAPI(subnet)
+        const result = await getDataAPI(
+          subnet,
+          'network',
+          '_return_as_object=1',
+          ''
+        )
 
         if (result.message !== undefined) {
           toast.error(`${result.message}`)
         } else {
-          updateSubnetsData(subnet, {
-            ...subnetsData.get(subnet),
-            network: result.network,
-            comment: result.comment,
-          })
+          if (result[0]?.network !== undefined) {
+            updateSubnetsData(subnet, {
+              ...subnetsData.get(subnet),
+              network: result[0].network,
+              comment: result[0].comment,
+            })
+          }
         }
       })
       setIsValidated(true)
