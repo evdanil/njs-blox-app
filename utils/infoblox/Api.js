@@ -38,10 +38,12 @@ export async function getDataAPI(
 ) {
   const { apiUrl, username, password } = getStoredAuth()
 
-  const requestUri = `${apiUrl !== '' ? apiUrl : API_URL}/${
-    req_type !== '' ? req_type : 'network'
-  }?network=${subnet.trim()}${options != '' ? '&' + options.trim() : ''}
-  ${fields != '' ? '&' + fields.trim() : ''}`
+  const requestUri =
+    `${apiUrl !== '' ? apiUrl : API_URL}/` +
+    `${req_type !== '' ? req_type : 'network'}` +
+    `?network=${subnet}` +
+    `${options != '' ? '&' + options : ''}` +
+    `${fields != '' ? '&' + fields : ''}`
   let fetchOptions = {}
   if (username !== '' && password !== '') {
     fetchOptions = {
@@ -52,12 +54,15 @@ export async function getDataAPI(
       timeout: 5000,
     }
   }
-  // console.log(request_uri)
   try {
     const res = await fetchWithTimeout(requestUri, fetchOptions)
     return res.json()
   } catch (error) {
-    return { message: error }
+    if (error.name === 'AbortError') {
+      return { message: 'request timed out', status: 'timeout error' }
+    } else {
+      return { message: error, status: error.name }
+    }
   }
 }
 
