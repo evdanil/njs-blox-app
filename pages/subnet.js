@@ -73,10 +73,9 @@ function SubnetPage() {
     }
 
     fetchData()
-    setIsValidated(true)
-    // setTimeout(() => {
-    //   setIsValidated(true)
-    // }, 1000)
+    setTimeout(() => {
+      setIsValidated(true)
+    }, 1000)
   }, [isSubmitted])
 
   const handleSubmit = async (e) => {
