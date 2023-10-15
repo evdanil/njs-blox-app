@@ -26,42 +26,34 @@ function SubnetPage() {
   }
 
   useEffect(() => {
-    // Do nothing if subnets list isn't validated
-    if (!isValidated) {
-      return
-    }
-    const fetchSubnetsData = async () => {
-      DEBUG && console.log('DEBUG: FetchSubnetsData called!')
-      ;[...subnetsData.keys()].map(async (subnet) => {
-        const result = await getAllSubnetData(subnet)
-        DEBUG && console.log('DEBUG: Processing ' + subnet)
-        updateSubnetsData(subnet, {
-          ...subnetsData.get(subnet),
-          ...result,
+    if (isValidated) {
+      // Do nothing if subnets list isn't validated
+      const fetchSubnetsData = async () => {
+        DEBUG && console.log('DEBUG: FetchSubnetsData called!')
+        ;[...subnetsData.keys()].map(async (subnet) => {
+          const result = await getAllSubnetData(subnet)
+          DEBUG && console.log('DEBUG: Processing ' + subnet)
+          updateSubnetsData(subnet, {
+            ...subnetsData.get(subnet),
+            ...result,
+          })
         })
-      })
+      }
+      fetchSubnetsData()
     }
-    fetchSubnetsData()
-  }, [isValidated])
+  }, [isValidated, subnetsData, updateSubnetsData])
 
   useEffect(() => {
     // Do nothing if form hasnt been submitted
-    if (!isSubmitted) {
-      return
-    }
+    if (isSubmitted) {
+      const subnetsArray = subnets.split(/[,\s]+|$/)
 
-    const subnetsArray = subnets.split(/[,\s]+|$/)
-
-    const fetchData = () => {
-      subnetsArray.map(async (subnet) => {
-        const result = await getDataAPI(subnet)
-
-        if (result.message !== undefined) {
-          toast.error(`${result.message}`)
-        } else {
-          // console.log(result)
-          if (result[0]?.network !== undefined) {
-            DEBUG && console.log(`DEBUG: Updating ${subnet}`)
+      const fetchData = async () => {
+        for (const subnet of subnetsArray) {
+          const result = await getDataAPI(subnet)
+          if (result.message !== undefined) {
+            toast.error(`${result.message}`)
+          } else if (result[0]?.network !== undefined) {
             updateSubnetsData(subnet, {
               ...subnetsData.get(subnet),
               network: result[0].network,
@@ -69,16 +61,13 @@ function SubnetPage() {
             })
           }
         }
-      })
-    }
+        // set isValidated when done
+        setIsValidated(true)
+      }
 
-    fetchData()
-    // setIsValidated(true)
-    // Reversed back
-    setTimeout(() => {
-      setIsValidated(true)
-    }, 1000)
-  }, [isSubmitted])
+      fetchData()
+    }
+  }, [isSubmitted, subnets, subnetsData, updateSubnetsData])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
