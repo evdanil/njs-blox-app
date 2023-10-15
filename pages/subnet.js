@@ -27,6 +27,7 @@ function SubnetPage() {
 
   useEffect(() => {
     if (isValidated) {
+      setIsValidated(false)
       // Do nothing if subnets list isn't validated
       const fetchSubnetsData = async () => {
         DEBUG && console.log('DEBUG: FetchSubnetsData called!')
@@ -41,7 +42,7 @@ function SubnetPage() {
       }
       fetchSubnetsData()
     }
-  }, [isValidated, subnetsData, updateSubnetsData])
+  }, [isValidated, subnetsData, updateSubnetsData, setIsValidated])
 
   useEffect(() => {
     // Do nothing if form hasnt been submitted
@@ -62,12 +63,21 @@ function SubnetPage() {
           }
         }
         // set isValidated when done
+        setIsSubmitted(false)
         setIsValidated(true)
       }
 
       fetchData()
     }
-  }, [isSubmitted, subnets, subnetsData, updateSubnetsData])
+  }, [
+    isSubmitted,
+    isValidated,
+    subnets,
+    subnetsData,
+    updateSubnetsData,
+    setIsSubmitted,
+    setIsValidated,
+  ])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
